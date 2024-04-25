@@ -5,9 +5,19 @@
 //Part Number: GW2A-LV18PG256C8/I7
 //Device: GW2A-18
 //Device Version: C
-//Created Time: Mon 04 22 09:20:35 2024
+//Created Time: Thu 04 25 12:41:30 2024
 
-IO_LOC "pin_pwm" E15;
-IO_PORT "pin_pwm" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "control_leds[3]" L9;
+IO_PORT "control_leds[3]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "control_leds[2]" N9;
+IO_PORT "control_leds[2]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "control_leds[1]" N6;
+IO_PORT "control_leds[1]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "control_leds[0]" A11;
+IO_PORT "control_leds[0]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "uart_tx" J14;
+IO_PORT "uart_tx" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "reset_uart" B11;
+IO_PORT "reset_uart" PULL_MODE=UP BANK_VCCIO=1.8;
 IO_LOC "clk" H11;
 IO_PORT "clk" PULL_MODE=UP BANK_VCCIO=1.8;

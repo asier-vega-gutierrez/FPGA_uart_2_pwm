@@ -8,6 +8,10 @@
   {
    "Path" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
    "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_tx.v",
+   "Type" : "verilog"
   }
  ],
  "IncludePath" : [

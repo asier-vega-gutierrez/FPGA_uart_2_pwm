@@ -6,6 +6,7 @@
     <FileList>
         <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Servo_control.v" type="verilog"/>
         <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v" type="verilog"/>
+        <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>

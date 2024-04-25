@@ -2,11 +2,16 @@ GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Servo_control.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v'
+Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v'
 Compiling module 'TOP'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":4)
-Compiling module 'servo_control'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Servo_control.v":2)
-WARN  (EX3670) : Actual bit length 32 differs from formal bit length 20 for port 'in_pwm'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":12)
+Compiling module 'uart_tx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v":12)
 NOTE  (EX0101) : Current top module is "TOP"
+WARN  (EX0211) : The output port "pin_pwm" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":8)
+WARN  (EX0211) : The output port "control_leds[3]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":16)
+WARN  (EX0211) : The output port "control_leds[2]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":16)
+WARN  (EX0211) : The output port "control_leds[1]" of module "TOP" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":16)
 [5%] Running netlist conversion ...
+WARN  (CV0016) : Input uart_rx is unused("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":12)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
