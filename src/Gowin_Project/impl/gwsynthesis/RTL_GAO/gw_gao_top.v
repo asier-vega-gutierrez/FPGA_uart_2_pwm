@@ -1,25 +1,14 @@
 module gw_gao(
-    \pwm_period[19] ,
-    \pwm_period[18] ,
-    \pwm_period[17] ,
-    \pwm_period[16] ,
-    \pwm_period[15] ,
-    \pwm_period[14] ,
-    \pwm_period[13] ,
-    \pwm_period[12] ,
-    \pwm_period[11] ,
-    \pwm_period[10] ,
-    \pwm_period[9] ,
-    \pwm_period[8] ,
-    \pwm_period[7] ,
-    \pwm_period[6] ,
-    \pwm_period[5] ,
-    \pwm_period[4] ,
-    \pwm_period[3] ,
-    \pwm_period[2] ,
-    \pwm_period[1] ,
-    \pwm_period[0] ,
-    pin_pwm,
+    \uart_rx_data[7] ,
+    \uart_rx_data[6] ,
+    \uart_rx_data[5] ,
+    \uart_rx_data[4] ,
+    \uart_rx_data[3] ,
+    \uart_rx_data[2] ,
+    \uart_rx_data[1] ,
+    \uart_rx_data[0] ,
+    uart_rx,
+    uart_rx_valid,
     clk,
     tms_pad_i,
     tck_pad_i,
@@ -27,54 +16,32 @@ module gw_gao(
     tdo_pad_o
 );
 
-input \pwm_period[19] ;
-input \pwm_period[18] ;
-input \pwm_period[17] ;
-input \pwm_period[16] ;
-input \pwm_period[15] ;
-input \pwm_period[14] ;
-input \pwm_period[13] ;
-input \pwm_period[12] ;
-input \pwm_period[11] ;
-input \pwm_period[10] ;
-input \pwm_period[9] ;
-input \pwm_period[8] ;
-input \pwm_period[7] ;
-input \pwm_period[6] ;
-input \pwm_period[5] ;
-input \pwm_period[4] ;
-input \pwm_period[3] ;
-input \pwm_period[2] ;
-input \pwm_period[1] ;
-input \pwm_period[0] ;
-input pin_pwm;
+input \uart_rx_data[7] ;
+input \uart_rx_data[6] ;
+input \uart_rx_data[5] ;
+input \uart_rx_data[4] ;
+input \uart_rx_data[3] ;
+input \uart_rx_data[2] ;
+input \uart_rx_data[1] ;
+input \uart_rx_data[0] ;
+input uart_rx;
+input uart_rx_valid;
 input clk;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \pwm_period[19] ;
-wire \pwm_period[18] ;
-wire \pwm_period[17] ;
-wire \pwm_period[16] ;
-wire \pwm_period[15] ;
-wire \pwm_period[14] ;
-wire \pwm_period[13] ;
-wire \pwm_period[12] ;
-wire \pwm_period[11] ;
-wire \pwm_period[10] ;
-wire \pwm_period[9] ;
-wire \pwm_period[8] ;
-wire \pwm_period[7] ;
-wire \pwm_period[6] ;
-wire \pwm_period[5] ;
-wire \pwm_period[4] ;
-wire \pwm_period[3] ;
-wire \pwm_period[2] ;
-wire \pwm_period[1] ;
-wire \pwm_period[0] ;
-wire pin_pwm;
+wire \uart_rx_data[7] ;
+wire \uart_rx_data[6] ;
+wire \uart_rx_data[5] ;
+wire \uart_rx_data[4] ;
+wire \uart_rx_data[3] ;
+wire \uart_rx_data[2] ;
+wire \uart_rx_data[1] ;
+wire \uart_rx_data[0] ;
+wire uart_rx;
+wire uart_rx_valid;
 wire clk;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -149,7 +116,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\pwm_period[19] ,\pwm_period[18] ,\pwm_period[17] ,\pwm_period[16] ,\pwm_period[15] ,\pwm_period[14] ,\pwm_period[13] ,\pwm_period[12] ,\pwm_period[11] ,\pwm_period[10] ,\pwm_period[9] ,\pwm_period[8] ,\pwm_period[7] ,\pwm_period[6] ,\pwm_period[5] ,\pwm_period[4] ,\pwm_period[3] ,\pwm_period[2] ,\pwm_period[1] ,\pwm_period[0] ,pin_pwm}),
+    .data_i({\uart_rx_data[7] ,\uart_rx_data[6] ,\uart_rx_data[5] ,\uart_rx_data[4] ,\uart_rx_data[3] ,\uart_rx_data[2] ,\uart_rx_data[1] ,\uart_rx_data[0] ,uart_rx,uart_rx_valid}),
     .clk_i(clk)
 );
 

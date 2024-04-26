@@ -16,16 +16,17 @@ void setup() {
   //Serial para ahcer debug
   Serial.begin(9600);
   Serial1.begin(9600);
+  Serial2.begin(9600);
 }
 
 void loop() {
   
-  //Lectura de entradas aanalogicas
+  /*//Lectura de entradas aanalogicas
   Xvalue = analogRead(pinJoyX);
   delay(100); //es necesaria una pequeña pausa entre lecturas analógicas
   Yvalue = analogRead(pinJoyY);
   //Lectura de entradas digitales
-  buttonValue = digitalRead(pinJoyButton);
+  buttonValue = digitalRead(pinJoyButton);*/
 
   //Enviamos por el serial de comunicacion
   /*Serial1.print(Xvalue);
@@ -34,10 +35,15 @@ void loop() {
   Serial1.print("/");
   Serial1.println(buttonValue);*/
   //Serial1.print(0x02);
+  
+  //Leemos el puerto rx
   if (Serial1.available()) {
     int inByte = Serial1.read();
     Serial.write(inByte);
   }
+
+  //Enviamos por el puerto tx
+  Serial2.write(0b00001001);
 
   //Vemos la informacion actual por el serial
   /*Serial.print("X:" );

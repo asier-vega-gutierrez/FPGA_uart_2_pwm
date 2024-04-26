@@ -18,15 +18,32 @@ module TOP (
 );
 
     wire[7:0] uart_tx_data = 8'b01000001;
-
     uart_tx tx(
         .i_clk(clk), //reloj 
         .i_resetn(~reset_uart), //reset //TODO no corta instantanemente
-        .i_uart_tx_en(1'b1), //Habilitar desahbilitar el envio
-        .i_uart_tx_data(uart_tx_data), //Datos, proces y byte cada vez
+        .i_uart_tx_en(1'b1), //Habilitar desahabilitar el envio
+        .i_uart_tx_data(uart_tx_data), //Datos a enviar
         .o_uart_txd(uart_tx), //Pin de envio de datos
-        .o_uart_tx_busy(control_leds[0])//Para indicar que tx esta en uso     
+        .o_uart_tx_busy()//Para indicar que tx esta en uso //TODO no funciona
     );
+
+    wire[7:0] uart_rx_data;
+    wire uart_rx_valid;
+    uart_rx rx(
+        .clk(clk), //reloj
+        .resetn(~reset_uart), //reset //TODO no corta instantanemente
+        .uart_rxd(uart_rx), //Pin de recepcion de datos
+        .uart_rx_en(1'b1), //Habilitar deshabilitar la recepcion
+        .uart_rx_break(), //Se activa si se ha cortado el envio
+        .uart_rx_valid(uart_rx_valid), //Se activa si los datos recibidos son validos
+        .uart_rx_data(uart_rx_data) //Datos del envio
+    );
+    
+    
+    assign control_leds[0] = uart_rx_data[0];
+    assign control_leds[1] = uart_rx_data[1];
+    assign control_leds[2] = uart_rx_data[2];
+    assign control_leds[3] = uart_rx_data[3];
     
 
     /*servo_control servo(

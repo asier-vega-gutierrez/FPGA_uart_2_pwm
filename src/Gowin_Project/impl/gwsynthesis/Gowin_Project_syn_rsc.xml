@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module name="TOP">
- <SubModule name="tx" Register="27" Alu="12" Lut="28"/>
+ <SubModule name="tx" Register="27" Alu="12" Lut="27"/>
+ <SubModule name="rx" Register="38" Alu="12" Lut="23"/>
+ <SubModule name="gw_gao_inst_0" Register="141" Lut="148" Bsram="1"/>
 </Module>
