@@ -16,15 +16,50 @@ module TOP (
     output[3:0]  control_leds //0: tx_busy 1: 2: 3:
 
 );
+    //Numero de bytes por mensaje 8 siempre
+    parameter PAYLOAD_BITS = 8; //2*8 = 24
+    
+    //Posibles estados
+    localparam MAIN_0 = 0;
+    localparam MAIN_1 = 1;
+    localparam MAIN_2 = 2;
+    localparam MAIN_3 = 3;
 
-    wire[7:0] uart_tx_data = 8'b01000001;
-    uart_tx tx(
+    //Registro para establecer estados
+    reg[1:0] state = 0;
+
+    //Registro para enviar datos
+    reg[PAYLOAD_BITS-1:0] uart_tx_data;
+    //Varaibl de control de tx
+    wire uart_tx_busy;
+
+    
+
+    always @(*) begin
+        case(state)
+            MAIN_0:
+                uart_tx_data <= 8'b01000001;    
+            MAIN_1:
+                uart_tx_data <= 8'b00001010;
+        endcase
+
+        case(state)
+            MAIN_0: state = (uart_tx_busy == 1'b0) ? MAIN_1 : MAIN_0;
+            MAIN_1: state = (uart_tx_busy == 1'b0) ? MAIN_0 : MAIN_1;
+        endcase
+            
+    end
+
+
+
+
+    uart_tx #(.PAYLOAD_BITS(PAYLOAD_BITS)) tx(
         .i_clk(clk), //reloj 
         .i_resetn(~reset_uart), //reset //TODO no corta instantanemente
         .i_uart_tx_en(1'b1), //Habilitar desahabilitar el envio
         .i_uart_tx_data(uart_tx_data), //Datos a enviar
         .o_uart_txd(uart_tx), //Pin de envio de datos
-        .o_uart_tx_busy()//Para indicar que tx esta en uso //TODO no funciona
+        .o_uart_tx_busy(uart_tx_busy)//Para indicar que tx esta en uso //TODO no funciona
     );
 
     wire[7:0] uart_rx_data;
