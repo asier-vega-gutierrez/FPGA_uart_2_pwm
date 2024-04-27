@@ -5,6 +5,7 @@ module servo_control(
     output pin_pwm
 );
     
+    //El servo tiene un periodo de 20_000_000, pero solo lee la señal hasta 2_000_000, por eso son 20 bits
     //Constantes del servo
     parameter PULSE_WIDTH_MAX = 2_500_000 / 37;
     parameter PULSE_WIDTH_MIN = 300_000 / 37;

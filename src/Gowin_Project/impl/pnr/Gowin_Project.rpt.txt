@@ -12,27 +12,27 @@
   <Part Number>: GW2A-LV18PG256C8/I7
   <Device>: GW2A-18
   <Device Version>: C
-  <Created Time>:Fri Apr 26 12:37:16 2024
+  <Created Time>:Sat Apr 27 12:41:42 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.017s, Elapsed time = 0h 0m 0.016s
-    Placement Phase 1: CPU time = 0h 0m 0.147s, Elapsed time = 0h 0m 0.147s
-    Placement Phase 2: CPU time = 0h 0m 0.021s, Elapsed time = 0h 0m 0.021s
-    Placement Phase 3: CPU time = 0h 0m 0.574s, Elapsed time = 0h 0m 0.574s
-    Total Placement: CPU time = 0h 0m 0.759s, Elapsed time = 0h 0m 0.758s
+    Placement Phase 0: CPU time = 0h 0m 0.017s, Elapsed time = 0h 0m 0.017s
+    Placement Phase 1: CPU time = 0h 0m 0.15s, Elapsed time = 0h 0m 0.15s
+    Placement Phase 2: CPU time = 0h 0m 0.02s, Elapsed time = 0h 0m 0.021s
+    Placement Phase 3: CPU time = 0h 0m 0.592s, Elapsed time = 0h 0m 0.592s
+    Total Placement: CPU time = 0h 0m 0.779s, Elapsed time = 0h 0m 0.78s
  Running routing:
     Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.086s, Elapsed time = 0h 0m 0.087s
-    Routing Phase 2: CPU time = 0h 0m 0.117s, Elapsed time = 0h 0m 0.116s
+    Routing Phase 1: CPU time = 0h 0m 0.091s, Elapsed time = 0h 0m 0.091s
+    Routing Phase 2: CPU time = 0h 0m 0.119s, Elapsed time = 0h 0m 0.119s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.204s, Elapsed time = 0h 0m 0.203s
+    Total Routing: CPU time = 0h 0m 0.211s, Elapsed time = 0h 0m 0.21s
  Generate output files:
     CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
 
- Total Time and Memory Usage: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s, Peak memory usage = 270MB
+ Total Time and Memory Usage: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s, Peak memory usage = 258MB
 
 
 3. Resource Usage Summary
@@ -40,15 +40,15 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 222/20736  2%
-    --LUT,ALU,ROM16           | 222(196 LUT, 26 ALU, 0 ROM16)
+  Logic                       | 261/20736  2%
+    --LUT,ALU,ROM16           | 261(215 LUT, 46 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 206/16173  2%
+  Register                    | 230/16173  2%
     --Logic Register as Latch | 0/15552  0%
-    --Logic Register as FF    | 205/15552  2%
+    --Logic Register as FF    | 229/15552  2%
     --I/O Register as Latch   | 0/621  0%
     --I/O Register as FF      | 1/621  <1%
-  CLS                         | 184/10368  2%
+  CLS                         | 200/10368  2%
   I/O Port                    | 13
   I/O Buf                     | 13
     --Input Buf               | 6
@@ -105,7 +105,7 @@
   -------------------------------------------
   Signal         | Global Clock   | Location
   -------------------------------------------
-  clk_d          | PRIMARY        |  TR TL BL
+  clk_d          | PRIMARY        |  TR TL BR
   gw_gao_inst_0/control0[0]| PRIMARY        |  TR TL BR BL
   gw_gao_inst_0/gao_jtag_reset| LW             |  -
   ===========================================
@@ -122,7 +122,7 @@ uart_rx          |           | J16/0         | Y          | in    | IOT22[A] | L
 tms_pad_i        |           | B8/2          | N          | in    | IOR25[B] | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
 tck_pad_i        |           | A7/2          | N          | in    | IOR26[A] | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
 tdi_pad_i        |           | A6/2          | N          | in    | IOR26[B] | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
-pin_pwm          |           | P5/4          | N          | out   | IOB50[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
+pin_pwm          |           | N1/4          | N          | out   | IOB42[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
 uart_tx          |           | J14/0         | Y          | out   | IOT22[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
 control_leds[0]  |           | A11/7         | Y          | out   | IOL15[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 1.8       
 control_leds[1]  |           | N6/3          | Y          | out   | IOR51[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 1.8       
@@ -246,7 +246,7 @@ L4/4     | -                | in    | IOB40[B] | LVCMOS18 | NA    | UP        | 
 N2/4     | -                | in    | IOB41[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 P1/4     | -                | in    | IOB41[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 M3/4     | -                | in    | IOB42[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-N1/4     | -                | in    | IOB42[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
+N1/4     | pin_pwm          | out   | IOB42[B] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
 M2/4     | -                | in    | IOB43[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 N3/4     | -                | in    | IOB43[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 R1/4     | -                | in    | IOB44[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
@@ -255,7 +255,7 @@ P4/4     | -                | in    | IOB45[A] | LVCMOS18 | NA    | UP        | 
 T4/4     | -                | in    | IOB45[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 R3/4     | -                | in    | IOB48[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 T2/4     | -                | in    | IOB48[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-P5/4     | pin_pwm          | out   | IOB50[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+P5/4     | -                | in    | IOB50[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 R5/4     | -                | in    | IOB50[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 R4/4     | -                | in    | IOB52[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 T3/4     | -                | in    | IOB52[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  

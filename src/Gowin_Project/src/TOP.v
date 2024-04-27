@@ -13,11 +13,10 @@ module TOP (
     output wire uart_tx, // UART transmit pin.
 
     //Control
-    output[3:0]  control_leds //0: tx_busy 1: 2: 3:
-
+    output[3:0] control_leds
 );
     //Numero de bytes por mensaje 8 siempre
-    parameter PAYLOAD_BITS = 8; //2*8 = 24
+    parameter PAYLOAD_BITS = 8; 
     
     //Posibles estados
     localparam MAIN_0 = 0;
@@ -30,30 +29,40 @@ module TOP (
 
     //Registro para enviar datos
     reg[PAYLOAD_BITS-1:0] uart_tx_data;
-    //Varaibl de control de tx
+    //Varaibel de control de tx
     wire uart_tx_busy;
 
-    
+    //Datos de hasta 2^24-1 = 
+    reg[23:0] data = {8'b00010100, 8'b00000000, 8'b00000000};
 
-    always @(*) begin
-        case(state)
-            MAIN_0:
-                uart_tx_data <= 8'b01000001;    
-            MAIN_1:
-                uart_tx_data <= 8'b00001010;
-        endcase
-
-        case(state)
-            MAIN_0: state = (uart_tx_busy == 1'b0) ? MAIN_1 : MAIN_0;
-            MAIN_1: state = (uart_tx_busy == 1'b0) ? MAIN_0 : MAIN_1;
-        endcase
-            
+    always @(posedge clk) begin
+        if (!reset_uart) begin
+            case(state)
+                MAIN_0: begin
+                    uart_tx_data <= 8'b01000010;
+                    state <= (uart_tx_busy == 1'b0) ? MAIN_3 : MAIN_0;
+                end
+                /*MAIN_1: begin
+                    uart_tx_data <= 8'b00000000;
+                    state <= (uart_tx_busy == 1'b0) ? MAIN_2 : MAIN_1;
+                end
+                MAIN_2: begin
+                    uart_tx_data <= 8'b00000000;
+                    state <= (uart_tx_busy == 1'b0) ? MAIN_3 : MAIN_2;
+                end*/
+                MAIN_3: begin
+                    uart_tx_data <= 8'b00001010;
+                    state <= (uart_tx_busy == 1'b0) ? MAIN_0 : MAIN_3;
+                end
+            endcase
+        end
     end
 
+  
 
 
 
-    uart_tx #(.PAYLOAD_BITS(PAYLOAD_BITS)) tx(
+    uart_tx tx(
         .i_clk(clk), //reloj 
         .i_resetn(~reset_uart), //reset //TODO no corta instantanemente
         .i_uart_tx_en(1'b1), //Habilitar desahabilitar el envio
@@ -81,10 +90,10 @@ module TOP (
     assign control_leds[3] = uart_rx_data[3];
     
 
-    /*servo_control servo(
+    servo_control servo(
         .clk(clk), //reloj
-        .in_pwm((RX_Byte*1_000_000)/37), //ancho de pulso pwm
+        .in_pwm((2_000_000)/37), //ancho de pulso pwm
         .pin_pwm(pin_pwm) //linea para pwm
-    );*/
+    );
 
 endmodule

@@ -38,8 +38,13 @@ void loop() {
   
   //Leemos el puerto rx
   if (Serial1.available()) {
-    int inByte = Serial1.read();
-    Serial.write(inByte);
+    char inByte = Serial1.read();
+    if (inByte == '\n') {
+      Serial.write(inByte);
+    } else{
+      //Serial.print(inByte, BIN);
+      Serial.write(inByte);
+    }
   }
 
   //Enviamos por el puerto tx
