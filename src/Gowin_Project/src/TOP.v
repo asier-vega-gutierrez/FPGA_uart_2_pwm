@@ -39,17 +39,17 @@ module TOP (
         if (!reset_uart) begin
             case(state)
                 MAIN_0: begin
-                    uart_tx_data <= 8'b01000010;
-                    state <= (uart_tx_busy == 1'b0) ? MAIN_3 : MAIN_0;
+                    uart_tx_data <= 8'b00010100;
+                    state <= (uart_tx_busy == 1'b0) ? MAIN_1 : MAIN_0;
                 end
-                /*MAIN_1: begin
+                MAIN_1: begin
                     uart_tx_data <= 8'b00000000;
                     state <= (uart_tx_busy == 1'b0) ? MAIN_2 : MAIN_1;
                 end
                 MAIN_2: begin
                     uart_tx_data <= 8'b00000000;
                     state <= (uart_tx_busy == 1'b0) ? MAIN_3 : MAIN_2;
-                end*/
+                end
                 MAIN_3: begin
                     uart_tx_data <= 8'b00001010;
                     state <= (uart_tx_busy == 1'b0) ? MAIN_0 : MAIN_3;
