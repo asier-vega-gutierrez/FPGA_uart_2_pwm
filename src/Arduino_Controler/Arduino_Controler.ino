@@ -9,6 +9,7 @@ const int pinJoyButton = 2; //pin boton
 int Xvalue = 0;
 int Yvalue = 0;
 bool buttonValue = false;
+long servo_current_position;
 
 //---RX---
 //Constante de maxima de bytes leidos, 3 de datos y uno de salto de linea, el numero maximo a representar es 020_000_000
@@ -60,9 +61,11 @@ void loop() {
 
   //Leemos el puerto rx
   read_rx(rxBytes);
-  Serial.print(rxBytes[0]);
-  Serial.print(rxBytes[1]);
-  Serial.println(rxBytes[2]);
+  if(rxBytes[0] > 0 || rxBytes[1] > 0 || rxBytes[2] > 0){
+    servo_current_position = bytes_to_int(rxBytes);
+    Serial.println(servo_current_position);
+  }
+  
   //Se deve resetear el array con los bytes leidos cada bucle ya que si no se genera muchos datos invalidos, mejor que sean siempre 0
   rxBytes[0] = 0;
   rxBytes[1] = 0;
@@ -106,3 +109,29 @@ void read_rx(int store_bytes[3]){
     }
   }
 }
+
+//Funcion para pasar de byte a long
+long bytes_to_int(int bytes[3]){
+  //El cambio se haca atraves de un string
+  String number = String("");
+  //Recorremos todos los bytes
+  for (int i = 0; i <= sizeof(bytes); i++){
+    //Convertimos el byte actual a string
+    String byte = String(bytes[i]);
+    //En funcion de su longitud necesitara que añadamos "00" si es "1" -> "001" y "0" si es "11" -> "011"
+    if (byte.length() == 1){
+      number = number + "00" + byte;
+    }else if(byte.length() == 2){
+      number = number + "0" + byte;
+    }else{
+      number = number + byte;
+    }
+  }
+  //Serial.println(number); //020000000
+  return number.toInt(); //aunque ponga to int, si el valor a devolver es long, devuelve un long
+}
+
+
+
+
+
