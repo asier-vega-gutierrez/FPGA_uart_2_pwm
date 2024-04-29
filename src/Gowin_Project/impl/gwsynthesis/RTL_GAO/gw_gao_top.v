@@ -1,4 +1,6 @@
 module gw_gao(
+    uart_rx,
+    uart_rx_valid,
     \uart_rx_data[7] ,
     \uart_rx_data[6] ,
     \uart_rx_data[5] ,
@@ -7,8 +9,30 @@ module gw_gao(
     \uart_rx_data[2] ,
     \uart_rx_data[1] ,
     \uart_rx_data[0] ,
-    uart_rx,
-    uart_rx_valid,
+    \uart_rx_bytes[23] ,
+    \uart_rx_bytes[22] ,
+    \uart_rx_bytes[21] ,
+    \uart_rx_bytes[20] ,
+    \uart_rx_bytes[19] ,
+    \uart_rx_bytes[18] ,
+    \uart_rx_bytes[17] ,
+    \uart_rx_bytes[16] ,
+    \uart_rx_bytes[15] ,
+    \uart_rx_bytes[14] ,
+    \uart_rx_bytes[13] ,
+    \uart_rx_bytes[12] ,
+    \uart_rx_bytes[11] ,
+    \uart_rx_bytes[10] ,
+    \uart_rx_bytes[9] ,
+    \uart_rx_bytes[8] ,
+    \uart_rx_bytes[7] ,
+    \uart_rx_bytes[6] ,
+    \uart_rx_bytes[5] ,
+    \uart_rx_bytes[4] ,
+    \uart_rx_bytes[3] ,
+    \uart_rx_bytes[2] ,
+    \uart_rx_bytes[1] ,
+    \uart_rx_bytes[0] ,
     clk,
     tms_pad_i,
     tck_pad_i,
@@ -16,6 +40,8 @@ module gw_gao(
     tdo_pad_o
 );
 
+input uart_rx;
+input uart_rx_valid;
 input \uart_rx_data[7] ;
 input \uart_rx_data[6] ;
 input \uart_rx_data[5] ;
@@ -24,14 +50,38 @@ input \uart_rx_data[3] ;
 input \uart_rx_data[2] ;
 input \uart_rx_data[1] ;
 input \uart_rx_data[0] ;
-input uart_rx;
-input uart_rx_valid;
+input \uart_rx_bytes[23] ;
+input \uart_rx_bytes[22] ;
+input \uart_rx_bytes[21] ;
+input \uart_rx_bytes[20] ;
+input \uart_rx_bytes[19] ;
+input \uart_rx_bytes[18] ;
+input \uart_rx_bytes[17] ;
+input \uart_rx_bytes[16] ;
+input \uart_rx_bytes[15] ;
+input \uart_rx_bytes[14] ;
+input \uart_rx_bytes[13] ;
+input \uart_rx_bytes[12] ;
+input \uart_rx_bytes[11] ;
+input \uart_rx_bytes[10] ;
+input \uart_rx_bytes[9] ;
+input \uart_rx_bytes[8] ;
+input \uart_rx_bytes[7] ;
+input \uart_rx_bytes[6] ;
+input \uart_rx_bytes[5] ;
+input \uart_rx_bytes[4] ;
+input \uart_rx_bytes[3] ;
+input \uart_rx_bytes[2] ;
+input \uart_rx_bytes[1] ;
+input \uart_rx_bytes[0] ;
 input clk;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
+wire uart_rx;
+wire uart_rx_valid;
 wire \uart_rx_data[7] ;
 wire \uart_rx_data[6] ;
 wire \uart_rx_data[5] ;
@@ -40,8 +90,30 @@ wire \uart_rx_data[3] ;
 wire \uart_rx_data[2] ;
 wire \uart_rx_data[1] ;
 wire \uart_rx_data[0] ;
-wire uart_rx;
-wire uart_rx_valid;
+wire \uart_rx_bytes[23] ;
+wire \uart_rx_bytes[22] ;
+wire \uart_rx_bytes[21] ;
+wire \uart_rx_bytes[20] ;
+wire \uart_rx_bytes[19] ;
+wire \uart_rx_bytes[18] ;
+wire \uart_rx_bytes[17] ;
+wire \uart_rx_bytes[16] ;
+wire \uart_rx_bytes[15] ;
+wire \uart_rx_bytes[14] ;
+wire \uart_rx_bytes[13] ;
+wire \uart_rx_bytes[12] ;
+wire \uart_rx_bytes[11] ;
+wire \uart_rx_bytes[10] ;
+wire \uart_rx_bytes[9] ;
+wire \uart_rx_bytes[8] ;
+wire \uart_rx_bytes[7] ;
+wire \uart_rx_bytes[6] ;
+wire \uart_rx_bytes[5] ;
+wire \uart_rx_bytes[4] ;
+wire \uart_rx_bytes[3] ;
+wire \uart_rx_bytes[2] ;
+wire \uart_rx_bytes[1] ;
+wire \uart_rx_bytes[0] ;
 wire clk;
 wire tms_pad_i;
 wire tck_pad_i;
@@ -116,7 +188,7 @@ gw_con_top  u_icon_top(
 
 ao_top u_ao_top(
     .control(control0[9:0]),
-    .data_i({\uart_rx_data[7] ,\uart_rx_data[6] ,\uart_rx_data[5] ,\uart_rx_data[4] ,\uart_rx_data[3] ,\uart_rx_data[2] ,\uart_rx_data[1] ,\uart_rx_data[0] ,uart_rx,uart_rx_valid}),
+    .data_i({uart_rx,uart_rx_valid,\uart_rx_data[7] ,\uart_rx_data[6] ,\uart_rx_data[5] ,\uart_rx_data[4] ,\uart_rx_data[3] ,\uart_rx_data[2] ,\uart_rx_data[1] ,\uart_rx_data[0] ,\uart_rx_bytes[23] ,\uart_rx_bytes[22] ,\uart_rx_bytes[21] ,\uart_rx_bytes[20] ,\uart_rx_bytes[19] ,\uart_rx_bytes[18] ,\uart_rx_bytes[17] ,\uart_rx_bytes[16] ,\uart_rx_bytes[15] ,\uart_rx_bytes[14] ,\uart_rx_bytes[13] ,\uart_rx_bytes[12] ,\uart_rx_bytes[11] ,\uart_rx_bytes[10] ,\uart_rx_bytes[9] ,\uart_rx_bytes[8] ,\uart_rx_bytes[7] ,\uart_rx_bytes[6] ,\uart_rx_bytes[5] ,\uart_rx_bytes[4] ,\uart_rx_bytes[3] ,\uart_rx_bytes[2] ,\uart_rx_bytes[1] ,\uart_rx_bytes[0] }),
     .clk_i(clk)
 );
 

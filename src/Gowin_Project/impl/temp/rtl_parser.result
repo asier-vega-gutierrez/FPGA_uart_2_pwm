@@ -9,15 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 65,
-    "InstName" : "tx",
-    "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_tx.v",
-    "ModuleLine" : 12,
-    "ModuleName" : "uart_tx"
-   },
-   {
-    "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 76,
+    "InstLine" : 37,
     "InstName" : "rx",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_rx.v",
     "ModuleLine" : 9,
@@ -25,7 +17,15 @@
    },
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 93,
+    "InstLine" : 140,
+    "InstName" : "tx",
+    "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_tx.v",
+    "ModuleLine" : 12,
+    "ModuleName" : "uart_tx"
+   },
+   {
+    "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
+    "InstLine" : 152,
     "InstName" : "servo",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Servo_control.v",
     "ModuleLine" : 2,

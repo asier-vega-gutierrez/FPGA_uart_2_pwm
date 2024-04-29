@@ -4,6 +4,8 @@
     <Mode>Lite</Mode>
     <AoCore_Lite index="0" sample_clock="clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="TOP">
         <SignalList>
+            <Signal>uart_rx</Signal>
+            <Signal>uart_rx_valid</Signal>
             <Bus name="uart_rx_data[7:0]">
                 <Signal>uart_rx_data[7]</Signal>
                 <Signal>uart_rx_data[6]</Signal>
@@ -14,9 +16,33 @@
                 <Signal>uart_rx_data[1]</Signal>
                 <Signal>uart_rx_data[0]</Signal>
             </Bus>
-            <Signal>uart_rx</Signal>
-            <Signal>uart_rx_valid</Signal>
+            <Bus name="uart_rx_bytes[23:0]">
+                <Signal>uart_rx_bytes[23]</Signal>
+                <Signal>uart_rx_bytes[22]</Signal>
+                <Signal>uart_rx_bytes[21]</Signal>
+                <Signal>uart_rx_bytes[20]</Signal>
+                <Signal>uart_rx_bytes[19]</Signal>
+                <Signal>uart_rx_bytes[18]</Signal>
+                <Signal>uart_rx_bytes[17]</Signal>
+                <Signal>uart_rx_bytes[16]</Signal>
+                <Signal>uart_rx_bytes[15]</Signal>
+                <Signal>uart_rx_bytes[14]</Signal>
+                <Signal>uart_rx_bytes[13]</Signal>
+                <Signal>uart_rx_bytes[12]</Signal>
+                <Signal>uart_rx_bytes[11]</Signal>
+                <Signal>uart_rx_bytes[10]</Signal>
+                <Signal>uart_rx_bytes[9]</Signal>
+                <Signal>uart_rx_bytes[8]</Signal>
+                <Signal>uart_rx_bytes[7]</Signal>
+                <Signal>uart_rx_bytes[6]</Signal>
+                <Signal>uart_rx_bytes[5]</Signal>
+                <Signal>uart_rx_bytes[4]</Signal>
+                <Signal>uart_rx_bytes[3]</Signal>
+                <Signal>uart_rx_bytes[2]</Signal>
+                <Signal>uart_rx_bytes[1]</Signal>
+                <Signal>uart_rx_bytes[0]</Signal>
+            </Bus>
         </SignalList>
     </AoCore_Lite>
-    <GAO_ID>0000010001001000</GAO_ID>
+    <GAO_ID>1011011100100000</GAO_ID>
 </GAO_CONFIG>

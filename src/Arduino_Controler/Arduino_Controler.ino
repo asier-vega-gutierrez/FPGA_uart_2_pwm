@@ -72,7 +72,11 @@ void loop() {
   rxBytes[2] = 0;
 
   //Enviamos por el puerto tx
-  Serial2.write(0b00001001);
+  //Serial2.print(0b00010100, BIN);
+  Serial2.write(0b00010100);
+  //Serial2.write(0b00000000);
+  //Serial2.write(0b00000001);
+  //Serial2.write(0b00001010);
 
   
 }

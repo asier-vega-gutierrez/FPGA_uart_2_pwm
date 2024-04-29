@@ -7,13 +7,13 @@
 //
 
 module uart_rx(
-    input  wire       clk          , // Top level system clock input.
-    input  wire       resetn       , // Asynchronous active low reset.
-    input  wire       uart_rxd     , // UART Recieve pin.
-    input  wire       uart_rx_en   , // Recieve enable
-    output wire       uart_rx_break, // Did we get a BREAK message?
-    output wire       uart_rx_valid, // Valid data recieved and available.
-    output reg  [PAYLOAD_BITS-1:0] uart_rx_data   // The recieved data.
+    input wire i_clk, // Top level system clock input.
+    input wire i_resetn, // Asynchronous active low reset.
+    input wire i_uart_rxd, // UART Recieve pin.
+    input wire i_uart_rx_en, // Recieve enable
+    output wire o_uart_rx_break, // Did we get a BREAK message?
+    output wire o_uart_rx_valid, // Valid data recieved and available.
+    output reg[PAYLOAD_BITS-1:0] o_uart_rx_data // The recieved data.
 );
 
     // --------------------------------------------------------------------------- 
@@ -55,7 +55,7 @@ module uart_rx(
     // 
 
     //
-    // Internally latched value of the uart_rxd line. Helps break long timing
+    // Internally latched value of the i_uart_rxd line. Helps break long timing
     // paths from input pins into the logic.
     reg rxd_reg;
     reg rxd_reg_0;
@@ -90,14 +90,14 @@ module uart_rx(
     // Output assignment
     // 
 
-    assign uart_rx_break = uart_rx_valid && ~|recieved_data;
-    assign uart_rx_valid = fsm_state == FSM_STOP && n_fsm_state == FSM_IDLE;
+    assign o_uart_rx_break = o_uart_rx_valid && ~|recieved_data;
+    assign o_uart_rx_valid = fsm_state == FSM_STOP && n_fsm_state == FSM_IDLE;
 
-    always @(posedge clk) begin
-        if(!resetn) begin
-            uart_rx_data  <= {PAYLOAD_BITS{1'b0}};
+    always @(posedge i_clk) begin
+        if(!i_resetn) begin
+            o_uart_rx_data  <= {PAYLOAD_BITS{1'b0}};
         end else if (fsm_state == FSM_STOP) begin
-            uart_rx_data  <= recieved_data;
+            o_uart_rx_data  <= recieved_data;
         end
     end
 
@@ -129,8 +129,8 @@ module uart_rx(
     //
     // Handle updates to the recieved data register.
     integer i = 0;
-    always @(posedge clk) begin : p_recieved_data
-        if(!resetn) begin
+    always @(posedge i_clk) begin : p_recieved_data
+        if(!i_resetn) begin
             recieved_data <= {PAYLOAD_BITS{1'b0}};
         end else if(fsm_state == FSM_IDLE             ) begin
             recieved_data <= {PAYLOAD_BITS{1'b0}};
@@ -144,8 +144,8 @@ module uart_rx(
 
     //
     // Increments the bit counter when recieving.
-    always @(posedge clk) begin : p_bit_counter
-        if(!resetn) begin
+    always @(posedge i_clk) begin : p_bit_counter
+        if(!i_resetn) begin
             bit_counter <= 4'b0;
         end else if(fsm_state != FSM_RECV) begin
             bit_counter <= {COUNT_REG_LEN{1'b0}};
@@ -156,8 +156,8 @@ module uart_rx(
 
     //
     // Sample the recieved bit when in the middle of a bit frame.
-    always @(posedge clk) begin : p_bit_sample
-        if(!resetn) begin
+    always @(posedge i_clk) begin : p_bit_sample
+        if(!i_resetn) begin
             bit_sample <= 1'b0;
         end else if (cycle_counter == CYCLES_PER_BIT/2) begin
             bit_sample <= rxd_reg;
@@ -167,8 +167,8 @@ module uart_rx(
 
     //
     // Increments the cycle counter when recieving.
-    always @(posedge clk) begin : p_cycle_counter
-        if(!resetn) begin
+    always @(posedge i_clk) begin : p_cycle_counter
+        if(!i_resetn) begin
             cycle_counter <= {COUNT_REG_LEN{1'b0}};
         end else if(next_bit) begin
             cycle_counter <= {COUNT_REG_LEN{1'b0}};
@@ -182,8 +182,8 @@ module uart_rx(
 
     //
     // Progresses the next FSM state.
-    always @(posedge clk) begin : p_fsm_state
-        if(!resetn) begin
+    always @(posedge i_clk) begin : p_fsm_state
+        if(!i_resetn) begin
             fsm_state <= FSM_IDLE;
         end else begin
             fsm_state <= n_fsm_state;
@@ -193,13 +193,13 @@ module uart_rx(
 
     //
     // Responsible for updating the internal value of the rxd_reg.
-    always @(posedge clk) begin : p_rxd_reg
-        if(!resetn) begin
+    always @(posedge i_clk) begin : p_rxd_reg
+        if(!i_resetn) begin
             rxd_reg     <= 1'b1;
             rxd_reg_0   <= 1'b1;
-        end else if(uart_rx_en) begin
+        end else if(i_uart_rx_en) begin
             rxd_reg     <= rxd_reg_0;
-            rxd_reg_0   <= uart_rxd;
+            rxd_reg_0   <= i_uart_rxd;
         end
     end
 
