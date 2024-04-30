@@ -44,43 +44,45 @@ module TOP (
         .o_uart_rx_data(uart_rx_data) //Datos del envio
     );
 
+    //HAY QUE ENVIAR UN MENSAJE DE FINAL DE MENSAJE COMO "\n"
     always @(posedge clk) begin
         if (!reset_uart) begin
             case (state_rx)
                 STEPS_RX_0: begin
                     uart_rx_bytes[23:16] <= uart_rx_data;
-                    state_rx <= (uart_rx_valid == 1'b1) ? MAIN_1 : MAIN_0;
+                    state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_1 : STEPS_RX_0;
                 end
                 STEPS_RX_1: begin
                     uart_rx_bytes[15:8] <= uart_rx_data;
-                    state_rx <= (uart_rx_valid == 1'b1) ? MAIN_2 : MAIN_0;
+                    state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_2 : STEPS_RX_1;
                 end
                 STEPS_RX_2: begin
                     uart_rx_bytes[7:0] <= uart_rx_data;
-                    state_rx <= (uart_rx_valid == 1'b1) ? MAIN_1 : MAIN_0;
+                    state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_0 : STEPS_RX_2;
                 end
             endcase
         end
     end
+    
 
     
-    /*assign control_leds[0] = uart_rx_bytes[16];
+    assign control_leds[0] = uart_rx_bytes[16];
     assign control_leds[1] = uart_rx_bytes[17];
     assign control_leds[2] = uart_rx_bytes[18];
     assign control_leds[3] = uart_rx_bytes[19];
     assign control_leds[4] = uart_rx_bytes[20];
     assign control_leds[5] = uart_rx_bytes[21];
     assign control_leds[6] = uart_rx_bytes[22];
-    assign control_leds[7] = uart_rx_bytes[23];*/
+    assign control_leds[7] = uart_rx_bytes[23];
     
-    assign control_leds[0] = uart_rx_bytes[8];
+    /*assign control_leds[0] = uart_rx_bytes[8];
     assign control_leds[1] = uart_rx_bytes[9];
     assign control_leds[2] = uart_rx_bytes[10];
     assign control_leds[3] = uart_rx_bytes[11];
     assign control_leds[4] = uart_rx_bytes[12];
     assign control_leds[5] = uart_rx_bytes[13];
     assign control_leds[6] = uart_rx_bytes[14];
-    assign control_leds[7] = uart_rx_bytes[15];
+    assign control_leds[7] = uart_rx_bytes[15];*/
     
     /*assign control_leds[0] = uart_rx_bytes[0];
     assign control_leds[1] = uart_rx_bytes[1];
@@ -110,22 +112,22 @@ module TOP (
     wire uart_tx_busy;
 
     //Bytes de batos utiles
-    reg[23:0] data = {8'd20, 8'd0, 8'd0};
+    reg[23:0] uart_tx_bytes = {8'd20, 8'd0, 8'd0};
     
     //Secuencia de envio de datos
     always @(posedge clk) begin
         if (!reset_uart) begin
             case(state)
                 MAIN_0: begin
-                    uart_tx_data <= data[23:16];
+                    uart_tx_data <= uart_tx_bytes[23:16];
                     state <= (uart_tx_busy == 1'b0) ? MAIN_1 : MAIN_0;
                 end
                 MAIN_1: begin
-                    uart_tx_data <= data[15:8];
+                    uart_tx_data <= uart_tx_bytes[15:8];
                     state <= (uart_tx_busy == 1'b0) ? MAIN_2 : MAIN_1;
                 end
                 MAIN_2: begin
-                    uart_tx_data <= data[7:0];
+                    uart_tx_data <= uart_tx_bytes[7:0];
                     state <= (uart_tx_busy == 1'b0) ? MAIN_3 : MAIN_2;
                 end
                 MAIN_3: begin

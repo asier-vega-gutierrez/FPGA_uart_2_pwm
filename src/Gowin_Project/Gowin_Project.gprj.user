@@ -10,7 +10,7 @@
     </FlowState>
     <ResultFileList>
         <ResultFile ResultFileType="RES.netlist" ResultFilePath="impl/gwsynthesis/Gowin_Project.vg"/>
-        <ResultFile ResultFileType="RES.pnr.bitstream" ResultFilePath="impl/pnr/Gowin_Project.fs"/>
+        <ResultFile ResultFileType="RES.pnr.bitstream" ResultFilePath="impl/pnr/ao_0.fs"/>
         <ResultFile ResultFileType="RES.pnr.pin.rpt" ResultFilePath="impl/pnr/Gowin_Project.pin.html"/>
         <ResultFile ResultFileType="RES.pnr.posp.bin" ResultFilePath="impl/pnr/Gowin_Project.db"/>
         <ResultFile ResultFileType="RES.pnr.pwr.rpt" ResultFilePath="impl/pnr/Gowin_Project.power.html"/>

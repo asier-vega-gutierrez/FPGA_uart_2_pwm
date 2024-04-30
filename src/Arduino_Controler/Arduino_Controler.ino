@@ -1,4 +1,4 @@
-#include "SPI.h"
+
 
 //---SERVO---
 //Constantes servo
@@ -74,9 +74,15 @@ void loop() {
   //Enviamos por el puerto tx
   //Serial2.print(0b00010100, BIN);
   Serial2.write(0b00010100);
-  //Serial2.write(0b00000000);
-  //Serial2.write(0b00000001);
-  //Serial2.write(0b00001010);
+  delay(3);
+  Serial2.write(0b00000000);
+  delay(3);
+  Serial2.write(0b00000001);
+  delay(3);
+  Serial2.write(0b00001010);
+
+  //uint8_t tx_data[3] = {0b00010100, 0b00000000, 0b00000001};
+  //Serial2.write(tx_data, 3);
 
   
 }
