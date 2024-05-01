@@ -20,7 +20,7 @@ module servo_control(
     //Varaible de ancho de pulso objetivo
     reg[19:0] pwm_width;
 
-    //Recalculamo el pwm si nos pasamos de los limites
+    //Recalculamos el pwm si nos pasamos de los limites
     always @(posedge clk) begin
         if(in_pwm > PULSE_WIDTH_MAX) begin
             pwm_width <= PULSE_WIDTH_MAX;

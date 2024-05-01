@@ -73,7 +73,7 @@ void loop() {
 
   //Enviamos por el puerto tx
   //Serial2.print(0b00010100, BIN);
-  Serial2.write(0b00010100);
+  Serial2.write(0b00000010);
   delay(3);
   Serial2.write(0b00000000);
   delay(3);
