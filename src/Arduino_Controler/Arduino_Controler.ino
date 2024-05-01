@@ -79,7 +79,7 @@ void loop() {
   delay(3);
   Serial2.write(0b00000001);
   delay(3);
-  Serial2.write(0b00001010);
+  //Serial2.write(0b00001010);
 
   //uint8_t tx_data[3] = {0b00010100, 0b00000000, 0b00000001};
   //Serial2.write(tx_data, 3);

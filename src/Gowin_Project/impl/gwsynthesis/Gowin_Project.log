@@ -2,6 +2,8 @@ GowinSynthesis start
 Running parser ...
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Servo_control.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v'
+WARN  (EX3012) : Empty statement in sequential block("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":56)
+WARN  (EX3012) : Empty statement in sequential block("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":60)
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_rx.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v'
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
@@ -22,11 +24,11 @@ Back to file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\gw_jtag.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
 Compiling module 'TOP'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":4)
-WARN  (EX3780) : Using initial value of 'uart_tx_bytes' since it is never assigned("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":115)
+WARN  (EX3780) : Using initial value of 'uart_tx_bytes' since it is never assigned("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":121)
 Compiling module 'uart_rx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_rx.v":9)
 Compiling module 'uart_tx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v":12)
 Compiling module 'servo_control'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Servo_control.v":2)
-WARN  (EX3670) : Actual bit length 32 differs from formal bit length 20 for port 'in_pwm'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":156)
+WARN  (EX3670) : Actual bit length 32 differs from formal bit length 20 for port 'in_pwm'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":162)
 Compiling module 'gw_gao'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
 Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\gw_jtag.v":1)
 Compiling module '**'("C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":0)

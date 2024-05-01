@@ -49,18 +49,24 @@ module TOP (
         if (!reset_uart) begin
             case (state_rx)
                 STEPS_RX_0: begin
-                    uart_rx_bytes[23:16] <= uart_rx_data;
+                    uart_rx_bytes[23:16] <= (uart_rx_valid == 1'b1) ? uart_rx_data : 8'b00000000;
                     state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_1 : STEPS_RX_0;
                 end
                 STEPS_RX_1: begin
-                    uart_rx_bytes[15:8] <= uart_rx_data;
+                    uart_rx_bytes[15:8] <= (uart_rx_valid == 1'b1) ? uart_rx_data : 8'b00000000;;
                     state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_2 : STEPS_RX_1;
                 end
                 STEPS_RX_2: begin
-                    uart_rx_bytes[7:0] <= uart_rx_data;
-                    state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_0 : STEPS_RX_2;
+                    uart_rx_bytes[7:0] <= (uart_rx_valid == 1'b1) ? uart_rx_data : 8'b00000000;;
+                    state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_3 : STEPS_RX_2;
+                end
+                STEPS_RX_3: begin
+                    state_rx <= (uart_rx_data == 8'b00001010) ? STEPS_RX_0 : STEPS_RX_3;
                 end
             endcase
+        end else begin
+            uart_rx_bytes <= 24'b0;
+            state_rx <= STEPS_RX_0; // Reset state to initial state
         end
     end
     
