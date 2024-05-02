@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 74,
+    "InstLine" : 76,
     "InstName" : "rx",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_rx.v",
     "ModuleLine" : 9,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 164,
+    "InstLine" : 166,
     "InstName" : "tx",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_tx.v",
     "ModuleLine" : 12,
@@ -25,11 +25,19 @@
    },
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 181,
-    "InstName" : "servo",
-    "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Servo_control.v",
+    "InstLine" : 185,
+    "InstName" : "red",
+    "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/RG_control.v",
     "ModuleLine" : 2,
-    "ModuleName" : "servo_control"
+    "ModuleName" : "PWM_control"
+   },
+   {
+    "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
+    "InstLine" : 191,
+    "InstName" : "green",
+    "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/RG_control.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "PWM_control"
    }
   ]
  }

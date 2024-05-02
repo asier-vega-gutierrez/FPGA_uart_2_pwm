@@ -4,10 +4,10 @@
     <Version>beta</Version>
     <Device id="GW2A-18C" package="PBGA256" speed="8" partNumber="GW2A-LV18PG256C8/I7"/>
     <FileList>
-        <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Servo_control.v" type="verilog"/>
         <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v" type="verilog"/>
         <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_rx.v" type="verilog"/>
         <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v" type="verilog"/>
+        <File path="C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\RG_control.v" type="verilog"/>
         <File path="C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v" type="gao"/>
         <File path="C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v" type="gao"/>
         <File path="C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v" type="gao"/>

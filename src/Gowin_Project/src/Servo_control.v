@@ -1,7 +1,7 @@
 
 module servo_control(
     input clk,
-    input[19:0] in_pwm,
+    input[31:0] in_pwm,
     output pin_pwm
 );
     
@@ -16,12 +16,12 @@ module servo_control(
     //Varaible contador
     reg[19:0] clk_count = 20'b0; //tamaño igual al periodo
     //Variable de movimiento de servo (Debug)
-    //reg[19:0] in_pwm = (2_000_000 / 37);
+    //reg[19:0] in_pwm = (500_000 / 37);
     //Varaible de ancho de pulso objetivo
-    reg[19:0] pwm_width;
+    reg[31:0] pwm_width;
 
     //Recalculamos el pwm si nos pasamos de los limites
-    always @(posedge clk) begin
+    /*always @(posedge clk) begin
         if(in_pwm > PULSE_WIDTH_MAX) begin
             pwm_width <= PULSE_WIDTH_MAX;
         end else if (in_pwm < PULSE_WIDTH_MIN) begin
@@ -29,24 +29,24 @@ module servo_control(
         end else begin
             pwm_width <= in_pwm;
         end
-    end
+    end*/
     
     //Calculamos el valor a contar por el contador
     always @(posedge clk) begin
-        pwm_period = (20_000_000 / 37); // 20_000 micros pwm // f = 27MHz T = 1/27*10^6 -> T 37.37ns
+        pwm_period <= (20_000_000 / 37); // 20_000 micros pwm // f = 27MHz T = 1/27*10^6 -> T 37.37ns
     end
 
     //Realizamos el conteo del reloj
     always @(posedge clk) begin
         if(clk_count == pwm_period - 1)begin
-            clk_count <= 19'b0;
+            clk_count <= 20'b0;
         end else begin
             clk_count <= clk_count + 1'b1;
         end
     end
     
     //Asignamos el valor segun el periodo
-    assign pin_pwm = (clk_count <= pwm_width) ? 1'b1 : 1'b0;
+    assign pin_pwm = (clk_count <= in_pwm) ? 1'b1 : 1'b0;
     
 
 endmodule

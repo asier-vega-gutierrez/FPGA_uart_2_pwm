@@ -4,8 +4,9 @@
 module TOP (
     input clk,
     
-    //Servo
-    output pin_pwm,
+    //PWM
+    output pin_pwm_red,
+    output pin_pwm_green,
 
     //Uart
     input reset_uart, // Slide switches.
@@ -18,6 +19,7 @@ module TOP (
 
     //Numero de bytes por paquete 8 siempre
     parameter PAYLOAD_BITS = 8; 
+
 
     //---RX---
 
@@ -171,17 +173,25 @@ module TOP (
     );
     
 
-    //---TRANSFORMATION--- 20 0 1 -> 020 000 001
-        
+    //---TRANSFORMATION--- 
+       
+    //Pasamos los byts a decimal 20 0 1 -> 020 000 001
     wire[27:0] bytes_to_decimal = (uart_rx_bytes[23:16] * 1000000) + (uart_tx_bytes[15:8] * 1000) + uart_tx_bytes[7:0]; 
+    //Convertimos la señal en conteo de nuestro frecuencia
     wire[19:0] servo_control_data = bytes_to_decimal/37;
 
-    //---SERVO---
+    //---PWM---
 
-    servo_control servo(
-        .clk(clk), //reloj
-        .in_pwm(servo_control_data), //ancho de pulso pwm
-        .pin_pwm(pin_pwm) //linea para pwm
+    PWM_control red(
+        .clk(clk), //reloj 
+        .in_pwm(2_000_000/37), //ancho de pulso pwm
+        .pin_pwm(pin_pwm_red) //linea para pwm
+    );
+
+    PWM_control green(
+        .clk(clk), //reloj 
+        .in_pwm(20_000_000/37), //ancho de pulso pwm
+        .pin_pwm(pin_pwm_green) //linea para pwm
     );
 
 

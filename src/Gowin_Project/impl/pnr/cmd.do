@@ -3,7 +3,7 @@
 -pn GW2A-LV18PG256C8/I7
 -cst C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Gowin_Project.cst
 -cfg C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\pnr\device.cfg
--gao_crc 0000101111011011
+-gao_crc 0100101010110001
 -bit
 -tr
 -ph

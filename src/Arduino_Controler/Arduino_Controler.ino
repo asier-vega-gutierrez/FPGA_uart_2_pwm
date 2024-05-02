@@ -36,34 +36,26 @@ void setup() {
 //---LOOP---
 void loop() {
   
-  /*//Lectura de entradas aanalogicas
+  //Lectura de entradas aanalogicas
   Xvalue = analogRead(pinJoyX);
   delay(100); //es necesaria una pequeña pausa entre lecturas analógicas
   Yvalue = analogRead(pinJoyY);
   //Lectura de entradas digitales
-  buttonValue = digitalRead(pinJoyButton);*/
+  buttonValue = digitalRead(pinJoyButton);
 
-  //Enviamos por el serial de comunicacion
-  /*Serial1.print(Xvalue);
-  Serial1.print("/");
-  Serial1.print(Yvalue);
-  Serial1.print("/");
-  Serial1.println(buttonValue);*/
-  //Serial1.print(0x02);
-
-  //Vemos la informacion actual por el serial
-  /*Serial.print("X:" );
+   //Vemos la informacion actual por el serial
+  Serial.print("X:" );
   Serial.print(Xvalue);
   Serial.print(" | Y: ");
   Serial.print(Yvalue);
   Serial.print(" | Pulsador: ");
-  Serial.println(buttonValue);*/
+  Serial.println(buttonValue);
 
   //Leemos el puerto rx
   read_rx(rxBytes);
   if(rxBytes[0] > 0 || rxBytes[1] > 0 || rxBytes[2] > 0){
     servo_current_position = bytes_to_int(rxBytes);
-    Serial.println(servo_current_position);
+    //Serial.println(servo_current_position);
   }
   
   //Se deve resetear el array con los bytes leidos cada bucle ya que si no se genera muchos datos invalidos, mejor que sean siempre 0
@@ -73,11 +65,11 @@ void loop() {
 
   //Enviamos por el puerto tx
   //Serial2.print(0b00010100, BIN);
-  Serial2.write(0b00000010);
+  Serial2.write(Xvalue);
   delay(3);
   Serial2.write(0b00000000);
   delay(3);
-  Serial2.write(0b00000001);
+  Serial2.write(0b00000000);
   delay(3);
   //Serial2.write(0b00001010);
 
