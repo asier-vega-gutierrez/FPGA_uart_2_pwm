@@ -1,11 +1,9 @@
 GowinSynthesis start
 Running parser ...
+Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\RG_control.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v'
-WARN  (EX3012) : Empty statement in sequential block("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":55)
-WARN  (EX3012) : Empty statement in sequential block("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":60)
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_rx.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v'
-Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\RG_control.v'
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
 Analyzing included file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\gwsynthesis\RTL_GAO\ao_0\gw_ao_top_define.v'("C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
 Back to file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'("C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
@@ -24,10 +22,11 @@ Back to file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\gw_jtag.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
 Compiling module 'TOP'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":4)
-WARN  (EX3780) : Using initial value of 'uart_tx_bytes' since it is never assigned("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":133)
+WARN  (EX3780) : Using initial value of 'uart_tx_bytes' since it is never assigned("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":139)
 Compiling module 'uart_rx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_rx.v":9)
 Compiling module 'uart_tx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v":12)
-WARN  (EX3791) : Expression size 28 truncated to fit in target size 20("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":181)
+WARN  (EX3791) : Expression size 64 truncated to fit in target size 32("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":188)
+WARN  (EX3791) : Expression size 64 truncated to fit in target size 32("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":189)
 Compiling module 'PWM_control'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\RG_control.v":2)
 Compiling module 'gw_gao'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
 Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\gw_jtag.v":1)

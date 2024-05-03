@@ -44,18 +44,18 @@ void loop() {
   buttonValue = digitalRead(pinJoyButton);
 
    //Vemos la informacion actual por el serial
-  Serial.print("X:" );
+  /*Serial.print("X:" );
   Serial.print(Xvalue);
   Serial.print(" | Y: ");
   Serial.print(Yvalue);
   Serial.print(" | Pulsador: ");
-  Serial.println(buttonValue);
+  Serial.println(buttonValue);*/
 
   //Leemos el puerto rx
   read_rx(rxBytes);
   if(rxBytes[0] > 0 || rxBytes[1] > 0 || rxBytes[2] > 0){
     servo_current_position = bytes_to_int(rxBytes);
-    //Serial.println(servo_current_position);
+    Serial.println(servo_current_position);
   }
   
   //Se deve resetear el array con los bytes leidos cada bucle ya que si no se genera muchos datos invalidos, mejor que sean siempre 0
@@ -64,18 +64,13 @@ void loop() {
   rxBytes[2] = 0;
 
   //Enviamos por el puerto tx
-  //Serial2.print(0b00010100, BIN);
   Serial2.write(Xvalue);
   delay(3);
-  Serial2.write(0b00000000);
+  Serial2.write(Yvalue);
   delay(3);
-  Serial2.write(0b00000000);
+  Serial2.write(buttonValue);
   delay(3);
-  //Serial2.write(0b00001010);
-
-  //uint8_t tx_data[3] = {0b00010100, 0b00000000, 0b00000001};
-  //Serial2.write(tx_data, 3);
-
+  Serial2.write(0b00001010);
   
 }
 

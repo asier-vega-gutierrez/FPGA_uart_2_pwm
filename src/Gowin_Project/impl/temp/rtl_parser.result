@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 76,
+    "InstLine" : 82,
     "InstName" : "rx",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_rx.v",
     "ModuleLine" : 9,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 166,
+    "InstLine" : 172,
     "InstName" : "tx",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_tx.v",
     "ModuleLine" : 12,
@@ -25,7 +25,7 @@
    },
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 185,
+    "InstLine" : 193,
     "InstName" : "red",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/RG_control.v",
     "ModuleLine" : 2,
@@ -33,7 +33,7 @@
    },
    {
     "InstFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
-    "InstLine" : 191,
+    "InstLine" : 199,
     "InstName" : "green",
     "ModuleFile" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/RG_control.v",
     "ModuleLine" : 2,

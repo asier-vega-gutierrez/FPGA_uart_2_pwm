@@ -2,6 +2,10 @@
  "Device" : "GW2A-18C",
  "Files" : [
   {
+   "Path" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/RG_control.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/TOP.v",
    "Type" : "verilog"
   },
@@ -11,10 +15,6 @@
   },
   {
    "Path" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/Uart_tx.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/ASIER/00-Electronica/U1-FPGAs/Proyecto/src/Gowin_Project/src/RG_control.v",
    "Type" : "verilog"
   }
  ],

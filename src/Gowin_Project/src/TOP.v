@@ -47,17 +47,23 @@ module TOP (
             case (state_rx)
                 STEPS_RX_0: begin
                     //En esta etapa almacenomos el primer byte, siempre y cunado el valor de rx sea valido
-                    uart_rx_bytes[23:16] <= (uart_rx_valid == 1'b1) ? uart_rx_data : 8'b00000000;
+                    if(uart_rx_valid == 1'b1) begin
+                        uart_rx_bytes[23:16] <= uart_rx_data;
+                    end
                     state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_1 : STEPS_RX_0;
                 end
                 STEPS_RX_1: begin
                     //En esta etapa almacenomos el segundo byte, siempre y cuando el valor de rx sea valido
-                    uart_rx_bytes[15:8] <= (uart_rx_valid == 1'b1) ? uart_rx_data : 8'b00000000;;
+                    if(uart_rx_valid == 1'b1) begin
+                        uart_rx_bytes[15:8] <= uart_rx_data;
+                    end
                     state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_2 : STEPS_RX_1;
                 end
                 STEPS_RX_2: begin
                     //En esta etapa almacenomos el tercer byte, siempre y cuando el valor de rx sea valido
-                    uart_rx_bytes[7:0] <= (uart_rx_valid == 1'b1) ? uart_rx_data : 8'b00000000;;
+                    if(uart_rx_valid == 1'b1) begin
+                        uart_rx_bytes[7:0] <= uart_rx_data;
+                    end
                     state_rx <= (uart_rx_valid == 1'b1) ? STEPS_RX_3 : STEPS_RX_2;
                 end
                 STEPS_RX_3: begin
@@ -84,7 +90,7 @@ module TOP (
     );
     
 
-    
+   
     assign control_leds[0] = uart_rx_bytes[16];
     assign control_leds[1] = uart_rx_bytes[17];
     assign control_leds[2] = uart_rx_bytes[18];
@@ -175,22 +181,24 @@ module TOP (
 
     //---TRANSFORMATION--- 
        
-    //Pasamos los byts a decimal 20 0 1 -> 020 000 001
-    wire[27:0] bytes_to_decimal = (uart_rx_bytes[23:16] * 1000000) + (uart_tx_bytes[15:8] * 1000) + uart_tx_bytes[7:0]; 
+    //Pasamos los byts a la relacion con el pwm
+    wire[63:0] bytes_to_pwm_x = (uart_rx_bytes[23:16] * 20_000_000) / 1023;
+    wire[63:0] bytes_to_pwm_y = (uart_rx_bytes[15:8] * 20_000_000) / 1023;
     //Convertimos la señal en conteo de nuestro frecuencia
-    wire[19:0] servo_control_data = bytes_to_decimal/37;
+    wire[31:0] pwm_x = bytes_to_pwm_x / 37; 
+    wire[31:0] pwm_y = bytes_to_pwm_y / 37; 
 
     //---PWM---
 
     PWM_control red(
         .clk(clk), //reloj 
-        .in_pwm(2_000_000/37), //ancho de pulso pwm
+        .in_pwm(pwm_x), //ancho de pulso pwm
         .pin_pwm(pin_pwm_red) //linea para pwm
     );
 
     PWM_control green(
         .clk(clk), //reloj 
-        .in_pwm(20_000_000/37), //ancho de pulso pwm
+        .in_pwm(pwm_y), //ancho de pulso pwm
         .pin_pwm(pin_pwm_green) //linea para pwm
     );
 

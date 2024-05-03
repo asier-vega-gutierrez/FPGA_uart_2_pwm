@@ -4,33 +4,41 @@
     <Mode>Lite</Mode>
     <AoCore_Lite index="0" sample_clock="clk" trig_type="0" capture_amount="1024" implemention="0" input_register_enabled="0" capture_init_data_enabled="0" module_name="TOP">
         <SignalList>
-            <Bus name="uart_rx_bytes[23:0]">
-                <Signal>uart_rx_bytes[23]</Signal>
-                <Signal>uart_rx_bytes[22]</Signal>
-                <Signal>uart_rx_bytes[21]</Signal>
-                <Signal>uart_rx_bytes[20]</Signal>
-                <Signal>uart_rx_bytes[19]</Signal>
-                <Signal>uart_rx_bytes[18]</Signal>
-                <Signal>uart_rx_bytes[17]</Signal>
-                <Signal>uart_rx_bytes[16]</Signal>
-                <Signal>uart_rx_bytes[15]</Signal>
-                <Signal>uart_rx_bytes[14]</Signal>
-                <Signal>uart_rx_bytes[13]</Signal>
-                <Signal>uart_rx_bytes[12]</Signal>
-                <Signal>uart_rx_bytes[11]</Signal>
-                <Signal>uart_rx_bytes[10]</Signal>
-                <Signal>uart_rx_bytes[9]</Signal>
-                <Signal>uart_rx_bytes[8]</Signal>
-                <Signal>uart_rx_bytes[7]</Signal>
-                <Signal>uart_rx_bytes[6]</Signal>
-                <Signal>uart_rx_bytes[5]</Signal>
-                <Signal>uart_rx_bytes[4]</Signal>
-                <Signal>uart_rx_bytes[3]</Signal>
-                <Signal>uart_rx_bytes[2]</Signal>
-                <Signal>uart_rx_bytes[1]</Signal>
-                <Signal>uart_rx_bytes[0]</Signal>
+            <Bus name="bytes_to_pwm_x[31:0]">
+                <Signal>bytes_to_pwm_x[31]</Signal>
+                <Signal>bytes_to_pwm_x[30]</Signal>
+                <Signal>bytes_to_pwm_x[29]</Signal>
+                <Signal>bytes_to_pwm_x[28]</Signal>
+                <Signal>bytes_to_pwm_x[27]</Signal>
+                <Signal>bytes_to_pwm_x[26]</Signal>
+                <Signal>bytes_to_pwm_x[25]</Signal>
+                <Signal>bytes_to_pwm_x[24]</Signal>
+                <Signal>bytes_to_pwm_x[23]</Signal>
+                <Signal>bytes_to_pwm_x[22]</Signal>
+                <Signal>bytes_to_pwm_x[21]</Signal>
+                <Signal>bytes_to_pwm_x[20]</Signal>
+                <Signal>bytes_to_pwm_x[19]</Signal>
+                <Signal>bytes_to_pwm_x[18]</Signal>
+                <Signal>bytes_to_pwm_x[17]</Signal>
+                <Signal>bytes_to_pwm_x[16]</Signal>
+                <Signal>bytes_to_pwm_x[15]</Signal>
+                <Signal>bytes_to_pwm_x[14]</Signal>
+                <Signal>bytes_to_pwm_x[13]</Signal>
+                <Signal>bytes_to_pwm_x[12]</Signal>
+                <Signal>bytes_to_pwm_x[11]</Signal>
+                <Signal>bytes_to_pwm_x[10]</Signal>
+                <Signal>bytes_to_pwm_x[9]</Signal>
+                <Signal>bytes_to_pwm_x[8]</Signal>
+                <Signal>bytes_to_pwm_x[7]</Signal>
+                <Signal>bytes_to_pwm_x[6]</Signal>
+                <Signal>bytes_to_pwm_x[5]</Signal>
+                <Signal>bytes_to_pwm_x[4]</Signal>
+                <Signal>bytes_to_pwm_x[3]</Signal>
+                <Signal>bytes_to_pwm_x[2]</Signal>
+                <Signal>bytes_to_pwm_x[1]</Signal>
+                <Signal>bytes_to_pwm_x[0]</Signal>
             </Bus>
         </SignalList>
     </AoCore_Lite>
-    <GAO_ID>0100101010110001</GAO_ID>
+    <GAO_ID>1000010001001100</GAO_ID>
 </GAO_CONFIG>
