@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Module name="TOP" Register="100" Alu="54" Lut="625" Dsp="2">
- <SubModule name="rx" Register="38" Alu="12" Lut="24"/>
- <SubModule name="red" Register="20" Alu="19" Lut="373"/>
- <SubModule name="green" Register="20" Alu="19" Lut="972"/>
- <SubModule name="tx" Register="28" Alu="12" Lut="28"/>
- <SubModule name="gw_gao_inst_0" Register="208" Lut="188" Bsram="2"/>
-</Module>
