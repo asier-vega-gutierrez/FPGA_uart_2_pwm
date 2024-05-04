@@ -22,12 +22,13 @@ Back to file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\gw_jtag.v'
 Analyzing Verilog file 'C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
 Compiling module 'TOP'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":4)
-WARN  (EX3780) : Using initial value of 'uart_tx_bytes' since it is never assigned("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":139)
+WARN  (EX3780) : Using initial value of 'second_count' since it is never assigned("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":216)
 Compiling module 'uart_rx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_rx.v":9)
-Compiling module 'uart_tx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v":12)
-WARN  (EX3791) : Expression size 64 truncated to fit in target size 32("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":188)
-WARN  (EX3791) : Expression size 64 truncated to fit in target size 32("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":189)
+WARN  (EX3791) : Expression size 64 truncated to fit in target size 32("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":127)
+WARN  (EX3791) : Expression size 64 truncated to fit in target size 32("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":128)
 Compiling module 'PWM_control'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\RG_control.v":2)
+Compiling module 'uart_tx'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\Uart_tx.v":12)
+WARN  (EX3791) : Expression size 25 truncated to fit in target size 24("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\src\TOP.v":224)
 Compiling module 'gw_gao'("C:\ASIER\00-Electronica\U1-FPGAs\Proyecto\src\Gowin_Project\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
 Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\gw_jtag.v":1)
 Compiling module '**'("C:\Gowin\Gowin_V1.9.9Beta-4_Education\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":0)

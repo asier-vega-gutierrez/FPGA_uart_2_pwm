@@ -1,15 +1,16 @@
 
 
 //---SERVO---
-//Constantes servo
+//Constantes joystick
 const int pinJoyX = A0; //pin eje x
 const int pinJoyY = A1; //pin eje y
 const int pinJoyButton = 2; //pin boton
-//Valores del servo
+//Valores del joystick
 int Xvalue = 0;
 int Yvalue = 0;
 bool buttonValue = false;
-long servo_current_position;
+//contador de la lifeline de la comunicacion
+long con_lifeline;
 
 //---RX---
 //Constante de maxima de bytes leidos, 3 de datos y uno de salto de linea, el numero maximo a representar es 020_000_000
@@ -18,7 +19,7 @@ const int MAX_BYTES = 4;
 bool endMsg = 0;
 //Este es el contador de bytes, se ocupa de activar la variable anterior
 int byteCont = 0; //si definimos el contador como global las lecturas son mejores
-//Aqui se
+//Aqui se alamacena los bytes de vuelta de la fpga
 int rxBytes[3] = {0,0,0};
 
 //---SETUP---
@@ -36,26 +37,19 @@ void setup() {
 //---LOOP---
 void loop() {
   
-  //Lectura de entradas aanalogicas
+  //Lectura de entradas analogicas
   Xvalue = analogRead(pinJoyX);
   delay(100); //es necesaria una pequeña pausa entre lecturas analógicas
   Yvalue = analogRead(pinJoyY);
   //Lectura de entradas digitales
   buttonValue = digitalRead(pinJoyButton);
 
-   //Vemos la informacion actual por el serial
-  /*Serial.print("X:" );
-  Serial.print(Xvalue);
-  Serial.print(" | Y: ");
-  Serial.print(Yvalue);
-  Serial.print(" | Pulsador: ");
-  Serial.println(buttonValue);*/
-
   //Leemos el puerto rx
   read_rx(rxBytes);
   if(rxBytes[0] > 0 || rxBytes[1] > 0 || rxBytes[2] > 0){
-    servo_current_position = bytes_to_int(rxBytes);
-    Serial.println(servo_current_position);
+    //Se recibe el valor de lifeline de la comunicacion
+    con_lifeline = bytes_to_int(rxBytes);
+    Serial.println(con_lifeline);
   }
   
   //Se deve resetear el array con los bytes leidos cada bucle ya que si no se genera muchos datos invalidos, mejor que sean siempre 0

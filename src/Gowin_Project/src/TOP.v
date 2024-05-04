@@ -89,8 +89,7 @@ module TOP (
         .o_uart_rx_data(uart_rx_data) //Datos del envio
     );
     
-
-   
+   //Para pintar un byte en leds
     assign control_leds[0] = uart_rx_bytes[16];
     assign control_leds[1] = uart_rx_bytes[17];
     assign control_leds[2] = uart_rx_bytes[18];
@@ -119,6 +118,30 @@ module TOP (
     assign control_leds[7] = uart_rx_bytes[7];*/
 
 
+    //---TRANSFORMATION--- 
+       
+    //Pasamos los byts a la relacion con el pwm
+    wire[63:0] bytes_to_pwm_x = (uart_rx_bytes[23:16] * 20_000_000) / 1023;
+    wire[63:0] bytes_to_pwm_y = (uart_rx_bytes[15:8] * 20_000_000) / 1023;
+    //Convertimos la señal en conteo de nuestro frecuencia
+    wire[31:0] pwm_x = bytes_to_pwm_x / 37; 
+    wire[31:0] pwm_y = bytes_to_pwm_y / 37; 
+
+    //---PWM---
+
+    PWM_control red(
+        .clk(clk), //reloj 
+        .in_pwm(pwm_x), //ancho de pulso pwm
+        .pin_pwm(pin_pwm_red) //linea para pwm
+    );
+
+    PWM_control green(
+        .clk(clk), //reloj 
+        .in_pwm(pwm_y), //ancho de pulso pwm
+        .pin_pwm(pin_pwm_green) //linea para pwm
+    );
+
+
     //---TX---
     
     //Posibles estados
@@ -126,9 +149,13 @@ module TOP (
     localparam STEPS_TX_1 = 1;
     localparam STEPS_TX_2 = 2;
     localparam STEPS_TX_3 = 3;
+    localparam STEPS_TX_4 = 4;
+    localparam STEPS_TX_5 = 5;
+    localparam STEPS_TX_6 = 6;
+    localparam STEPS_TX_7 = 7;
 
     //Registro para establecer estados
-    reg[1:0] state_tx = 0;
+    reg[2:0] state_tx = 0;
 
     //Registro para enviar datos
     reg[PAYLOAD_BITS-1:0] uart_tx_data;
@@ -136,13 +163,17 @@ module TOP (
     wire uart_tx_busy;
 
     //Bytes de batos utiles a enviar
-    reg[23:0] uart_tx_bytes = {8'd20, 8'd0, 8'd0};
-    
+    //reg[23:0] uart_tx_bytes = {8'd20, 8'd0, 8'd0};
+    reg[23:0] uart_tx_bytes = 24'b0;
+    always @(posedge clk) begin
+        uart_tx_bytes = con_timer;
+    end
+
     //Secuencia de envio de datos
     always @(posedge clk) begin
         //Siempre y cuando no realicemos un reset
         if (!reset_uart) begin
-            //Este case envia los 4 bytes del mensaje, los envia en orden segun la line de tx este libre 
+            //Este case envia los 5 bytes del mensaje, los envia en orden segun la line de tx este libre 
             case(state_tx)
                 STEPS_TX_0: begin
                     //En esta estapa enviamos el primer byte
@@ -179,28 +210,25 @@ module TOP (
     );
     
 
-    //---TRANSFORMATION--- 
-       
-    //Pasamos los byts a la relacion con el pwm
-    wire[63:0] bytes_to_pwm_x = (uart_rx_bytes[23:16] * 20_000_000) / 1023;
-    wire[63:0] bytes_to_pwm_y = (uart_rx_bytes[15:8] * 20_000_000) / 1023;
-    //Convertimos la señal en conteo de nuestro frecuencia
-    wire[31:0] pwm_x = bytes_to_pwm_x / 37; 
-    wire[31:0] pwm_y = bytes_to_pwm_y / 37; 
-
-    //---PWM---
-
-    PWM_control red(
-        .clk(clk), //reloj 
-        .in_pwm(pwm_x), //ancho de pulso pwm
-        .pin_pwm(pin_pwm_red) //linea para pwm
-    );
-
-    PWM_control green(
-        .clk(clk), //reloj 
-        .in_pwm(pwm_y), //ancho de pulso pwm
-        .pin_pwm(pin_pwm_green) //linea para pwm
-    );
-
+    //---CON TIMER---
+    
+    //Este temporizador de un segundo manda su valor por el puerot serie a modo de callback lifeline the la comunicaion
+    reg[31:0] second_count = 1_000_000_000 / 37;
+    reg[31:0] clk_count = 23'b0;
+    reg[23:0] con_timer;
+    
+    always @(posedge clk) begin
+        //Realizamos el conteo cada segundo
+        if(clk_count == second_count - 1)begin
+            clk_count <= 20'b0;
+            con_timer <= con_timer + 1;
+        end else begin
+            clk_count <= clk_count + 1'b1;
+        end
+        //Reseteamos el contador en caso de reset
+        if(reset_uart) begin
+            con_timer <= 0;
+        end
+    end
 
 endmodule
