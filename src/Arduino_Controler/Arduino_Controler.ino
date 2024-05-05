@@ -1,6 +1,5 @@
 
 
-//---SERVO---
 //Constantes joystick
 const int pinJoyX = A0; //pin eje x
 const int pinJoyY = A1; //pin eje y
