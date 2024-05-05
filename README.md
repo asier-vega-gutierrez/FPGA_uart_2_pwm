@@ -5,7 +5,7 @@
 
 Se incluyen videos de demostracion en "/doc"
 
-![foto](https://github.com/asier-vega-gutierrez/FPGA_uart_2_pwm/blob/main/doc/Esquema.png)
+![foto](https://github.com/asier-vega-gutierrez/FPGA_uart_2_pwm/blob/main/doc/EsquemaGeneral.png)
 
 </li>
     <li>Referencias</li>
