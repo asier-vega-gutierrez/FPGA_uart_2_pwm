@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-05-05T10:13:45.702Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="JeXEP_wc3D5TUuSUusjd" version="24.3.1" type="google">
+<mxfile host="app.diagrams.net" modified="2024-05-05T10:36:44.281Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="L4AEJNlMo7vjT7VNiIG5" version="24.3.1" type="google">
   <diagram name="Página-1" id="WmQxIEgVPcP-sukbjLlC">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -14,7 +14,7 @@
           <mxGeometry x="64" y="890" width="82" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2NQhCOe1wRh0t_-MxqOp-2" value="&lt;b&gt;Arduino mega&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="450" y="883" width="82" height="30" as="geometry" />
+          <mxGeometry x="495" y="890" width="82" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2NQhCOe1wRh0t_-MxqOp-3" value="&lt;b&gt;5v analog joystick&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="590.5" y="974" width="82" height="30" as="geometry" />
