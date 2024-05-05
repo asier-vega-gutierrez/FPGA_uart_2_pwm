@@ -1,5 +1,3 @@
-# FPGA_uart_2_pwm
-
 ## Aplicacion de comunicacion uart para controlar led por pwm
 <ul>
     <li>Fechas: Mayo 2024</li>
